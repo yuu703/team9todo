@@ -4,6 +4,7 @@ void main() {
   runApp(MyApp());
 }
 
+//接続でいじるのはstatelessWidgetのappBar内部だけ
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,10 +39,120 @@ class ChatPage extends StatefulWidget {
   _ChatPageState createState() => _ChatPageState();
 }
 
-String messageText;
-
 class _ChatPageState extends State<ChatPage> {
-  List<Container> chatList = [];
+  List<Widget> messageList = [
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          CircleAvatar(
+            radius: 30.0,
+            backgroundImage: AssetImage('images/IMG_4088.jpeg'),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: Text(
+                  '徹夜は良くない',
+                  style: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    color: Colors.brown,
+                    fontSize: 18.0,
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          CircleAvatar(
+            radius: 30.0,
+            backgroundImage: AssetImage('images/IMG_4088.jpeg'),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: Text(
+                  '睡眠は大事',
+                  style: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    color: Colors.brown,
+                    fontSize: 18.0,
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
+                child: Text(
+                  '急いでもいいことはない',
+                  style: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    color: Colors.brown,
+                    fontSize: 18.0,
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          CircleAvatar(
+            radius: 30.0,
+            backgroundImage: AssetImage('images/IMG_5897.jpeg'),
+          ),
+        ],
+      ),
+    ),
+  ];
+
+  String messageText;
+
   final messageTextController = TextEditingController();
 
   @override
@@ -50,116 +161,7 @@ class _ChatPageState extends State<ChatPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage: AssetImage('images/IMG_4088.jpeg'),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Center(
-                        child: Text(
-                          '徹夜は良くない',
-                          style: TextStyle(
-                            fontFamily: 'Source Sans Pro',
-                            color: Colors.brown,
-                            fontSize: 18.0,
-                            letterSpacing: 2.5,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage: AssetImage('images/IMG_4088.jpeg'),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Center(
-                        child: Text(
-                          '睡眠は大事',
-                          style: TextStyle(
-                            fontFamily: 'Source Sans Pro',
-                            color: Colors.brown,
-                            fontSize: 18.0,
-                            letterSpacing: 2.5,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Center(
-                        child: Text(
-                          '急いでもいいことはない',
-                          style: TextStyle(
-                            fontFamily: 'Source Sans Pro',
-                            color: Colors.brown,
-                            fontSize: 18.0,
-                            letterSpacing: 2.5,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  CircleAvatar(
-                    radius: 30.0,
-                    backgroundImage: AssetImage('images/IMG_5897.jpeg'),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          children: messageList,
         ),
         Row(
           children: <Widget>[
@@ -186,6 +188,47 @@ class _ChatPageState extends State<ChatPage> {
               color: Colors.pink[300],
               onPressed: () {
                 print(messageText);
+                setState(() {
+                  messageList.add(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Center(
+                                child: Text(
+                                  messageText,
+                                  style: TextStyle(
+                                    fontFamily: 'Source Sans Pro',
+                                    color: Colors.brown,
+                                    fontSize: 18.0,
+                                    letterSpacing: 2.5,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          CircleAvatar(
+                            radius: 30.0,
+                            backgroundImage: AssetImage('images/IMG_5897.jpeg'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                });
+
                 messageTextController.clear();
               },
               child: Icon(
