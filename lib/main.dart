@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage>
     return [
       BottomNavigationBarItem(
         icon: Icon(Icons.home),
-        title: const Text('時間割・to do'),
+        title: const Text('Home'),
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.event),
