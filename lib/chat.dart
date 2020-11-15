@@ -1,4 +1,7 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:under_app/main.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,6 +18,8 @@ class MyApp extends StatelessWidget {
               icon: Icon(Icons.arrow_back),
               onPressed: () {
                 print('back button pressed');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MyHomePage()));
               }),
           title: Text(
             '英単語2500 p244-250',
